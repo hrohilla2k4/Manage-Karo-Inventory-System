@@ -14,6 +14,8 @@ router.post('/users', (req, res) => {
     res.send('Create a user');
 });
 
-// More route definitions...
 
+
+
+//Exporting the route , so that it can be used outside this file. 
 module.exports = router;
