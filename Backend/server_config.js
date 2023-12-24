@@ -29,6 +29,10 @@ apiServer.use(express.json())
 apiServer.use(express.urlencoded({ extended: false }))
 apiServer.use(bodyParser.json())
 apiServer.use(cookieParser())
+apiServer.use(cors({
+    origin: ["http://localhost:3000"],
+    credentials: true
+}))
 
 // Middleware for the file upload
 apiServer.use("/uploads", express.static(path.join(__dirname, "uploads")))

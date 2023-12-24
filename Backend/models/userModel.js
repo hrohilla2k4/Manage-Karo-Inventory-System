@@ -25,12 +25,12 @@ const userSchema = mongoose.Schema({
     },
     image: {
         type: String,
-        required: [true, "Please add a image"],
+        required: [false],
         default: "https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png"
     },
     phoneNumber: {
         type: String,
-        required: [true, "Please add a phone number"],
+        required: [false],
         default: "+9123"
     },
     bio: {

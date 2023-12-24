@@ -20,7 +20,7 @@ router.get('/loggedin', loggedInStatus)
 
 // Update the user
 router.patch("/updateuser", protect, updateUser)
-module.exports = router
+
 
 // Change the password
 router.patch('/changepassword', protect, changePassword)
@@ -30,3 +30,6 @@ router.post('/forgotpassword', forgotPassword)
 
 // Reset password
 router.put('/resetpassword/:resetToken', resetPassword)
+
+
+module.exports = router

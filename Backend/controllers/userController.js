@@ -16,14 +16,9 @@ const generateToken = (id) => {
 
 const registerUser = asyncHandler(async (req, res) => {
 
-    const { name, email, password } = req.body
+    const { name, email, password } = await req.body
 
     // Validation methods
-
-    if (!name || !email || !password) {
-        res.status(400)
-        throw new Error("Please fill all the fields")
-    }
 
     if (password < 8) {
         res.status(400)
@@ -328,13 +323,13 @@ const forgotPassword = asyncHandler(async (req, res) => {
     <p>Manage Karo Team</p>
     `
     const subject = "Password Reset Request"
-    const send_to = user.email
+    const send_to = email
     const sent_from = process.env.emaiUser
 
     try {
 
         await sendEmail(subject, message, send_to, sent_from)
-        res.status(200).json("Email sent")
+        res.status(200).json({ message: "Email sent" })
 
     } catch (error) {
 

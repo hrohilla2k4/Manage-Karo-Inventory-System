@@ -1,8 +1,9 @@
 import React from "react";
-import { MdAutoFixHigh, MdManageAccounts } from "react-icons/md";
+import { MdManageAccounts } from "react-icons/md";
 import { Link } from "react-router-dom"
 import "./Home.scss"
 import heroImg from "../../assets/inv-img.png"
+import { ShownOnLogout, ShowOnLogin } from "../../components/protect/hiddenLinks";
 
 const Home = () => {
     return (
@@ -12,19 +13,26 @@ const Home = () => {
                     <MdManageAccounts size={35} />
                 </div>
                 <ul className="home-links">
-                    <li>
-                        <Link to="/register">Register</Link>
-                    </li>
-                    <li>
-                        <button className="--btn --btn-primary">
-                            <Link to="/login">Login</Link>
-                        </button>
-                    </li>
-                    <li>
-                        <button className="--btn --btn-primary">
-                            <Link to="/dashboard">Dashboard</Link>
-                        </button>
-                    </li>
+                    <ShownOnLogout>
+                        <li>
+                            <Link to="/register">Register</Link>
+                        </li>
+                    </ShownOnLogout>
+
+                    <ShownOnLogout>
+                        <li>
+                            <button className="--btn --btn-primary">
+                                <Link to="/login">Login</Link>
+                            </button>
+                        </li>
+                    </ShownOnLogout>
+                    <ShowOnLogin>
+                        <li>
+                            <button className="--btn --btn-primary">
+                                <Link to="/dashboard">Dashboard</Link>
+                            </button>
+                        </li>
+                    </ShowOnLogin>
                 </ul>
 
             </nav>
